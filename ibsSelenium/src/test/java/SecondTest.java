@@ -1,4 +1,5 @@
 import basetest.BaseTests;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static project.utils.PropConst.LOGIN;
@@ -6,6 +7,7 @@ import static project.utils.PropConst.PASSWORD;
 
 public class SecondTest extends BaseTests {
 
+    @DisplayName("Первый тест")
     @Test
     public void test() {
         app.getLoginPage()
