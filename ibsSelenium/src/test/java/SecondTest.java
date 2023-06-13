@@ -1,14 +1,23 @@
 import basetest.BaseTests;
+import extension.AllureExtension;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static project.utils.PropConst.LOGIN;
 import static project.utils.PropConst.PASSWORD;
 
+@DisplayName("Сценарий для allure репорта")
+@ExtendWith(AllureExtension.class)
 public class SecondTest extends BaseTests {
 
-    @DisplayName("Первый тест")
     @Test
+    @DisplayName("Проверка создания командировки без добавления командируемых сотрудников")
+    @Severity(SeverityLevel.NORMAL)
+    @Link("http://training.appline.ru/user/login")
     public void test() {
         app.getLoginPage()
                 .enterLoginAndPassword(props.getProperty(LOGIN), props.getProperty(PASSWORD))
