@@ -1,6 +1,5 @@
 package project.pages;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -14,7 +13,6 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//span[.='Командировки']")
     private WebElement buttonBusinessTrip;
 
-    @Step("Навести курсор мыши на меню меню '{name}'")
     public MainPage selectMenu(String name) {
         for (WebElement menuItem : menuName) {
             if (menuItem.getText().equalsIgnoreCase(name)) {
@@ -25,7 +23,6 @@ public class MainPage extends BasePage {
         return pageManager.getMainPage();
     }
 
-    @Step("Кликнуть на меню \"Командировки\"")
     public BusinessTripPage clickBusinessTrip() {
         buttonBusinessTrip.click();
         loading();

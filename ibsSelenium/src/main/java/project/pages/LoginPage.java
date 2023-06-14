@@ -1,6 +1,5 @@
 package project.pages;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -23,7 +22,6 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//h1[@class='oro-subtitle']")
     private WebElement subTitle;
 
-    @Step("Ввод логина '{login}' и пароля '{password}'")
     public LoginPage enterLoginAndPassword(String login, String password) {
         wait.until(visibilityOf(loginFormWindow));
         loginRow.sendKeys(login);
@@ -31,7 +29,6 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    @Step("Кликнуть на кнопку \"Войти\"")
     public MainPage submitClick() {
         submitButton.click();
         wait.until(visibilityOf(subTitle));

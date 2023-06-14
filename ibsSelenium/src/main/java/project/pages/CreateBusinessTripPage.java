@@ -1,6 +1,5 @@
 package project.pages;
 
-import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -50,7 +49,6 @@ public class CreateBusinessTripPage extends BasePage {
     @FindBy(xpath = "(//*[@type='checkbox'])[1]")
     private WebElement checkboxBookingOfTickets;
 
-    @Step("Заполнить поле \"Подразделение\" подразделением: '{text}'")
     public CreateBusinessTripPage inputSubdivisionField(String text) {
         Select subdivision = new Select(subdivisionField);
         subdivision.selectByVisibleText(text);
@@ -59,7 +57,6 @@ public class CreateBusinessTripPage extends BasePage {
         return this;
     }
 
-    @Step("Заполнить поле \"Выбрать организацию из списка\" '{name}'")
     public CreateBusinessTripPage chooseOrganizationFromList(String name) {
         buttonListOfOrganization.click();
         waitUtilElementToBeClickable(buttonSpecifyOrganization);
@@ -76,7 +73,6 @@ public class CreateBusinessTripPage extends BasePage {
         return this;
     }
 
-    @Step("Заполнить поле \"Город выбытия\" значением '{nameCity}'")
     public CreateBusinessTripPage inputDepartureCity(String nameCity) {
         departureCity.clear();
         departureCity.sendKeys(nameCity);
@@ -85,7 +81,6 @@ public class CreateBusinessTripPage extends BasePage {
         return this;
     }
 
-    @Step("Заполнить поле \"Город прибытия\" значением '{nameCity}'")
     public CreateBusinessTripPage inputArrivalCity(String nameCity) {
         arrivalCity.clear();
         arrivalCity.sendKeys(nameCity);
@@ -94,7 +89,6 @@ public class CreateBusinessTripPage extends BasePage {
         return this;
     }
 
-    @Step("Заполнить поле \"Планируемая дата выезда\" значением '{date}'")
     public CreateBusinessTripPage inputDepartureDate(String date) {
         departureDate.clear();
         departureDate.sendKeys(date);
@@ -104,7 +98,6 @@ public class CreateBusinessTripPage extends BasePage {
         return this;
     }
 
-    @Step("Заполнить поле \"Планируемая дата возвращения\" значением '{date}'")
     public CreateBusinessTripPage inputReturnDate(String date) {
         returnDate.clear();
         returnDate.sendKeys(date);
@@ -114,21 +107,18 @@ public class CreateBusinessTripPage extends BasePage {
         return this;
     }
 
-    @Step("Кликнуть на кнопку \"Сохранить и выйти\"")
     public CreateBusinessTripPage clickSaveAndExitWithError() {
         saveAndExit.click();
         loading();
         return this;
     }
 
-    @Step("Проверить отображение ошибки \"Список командируемых сотрудников не может быть пустым\"")
     public CreateBusinessTripPage checkErrorListOfSecondedEmployees() {
         Assertions.assertEquals("Список командируемых сотрудников не может быть пустым",
                 errorListOfSecondedEmployees.getText(), "Ошибка отображается неверно");
         return this;
     }
 
-    @Step("Клинкуть на чекбокс \"Заказ билетов\"")
     public CreateBusinessTripPage clickCheckboxBookingOfTickets() {
         waitUtilElementToBeClickable(checkboxBookingOfTickets);
         checkboxBookingOfTickets.click();
